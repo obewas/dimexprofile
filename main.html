@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimex Consultancy Services</title>
+
+  <!-- Simple CSS (embedded for single-file deployment) -->
+  <style>
+    :root {
+      --primary: #0f4c75;
+      --secondary: #3282b8;
+      --accent: #f9a826;
+      --light: #f5f7fa;
+      --dark: #1b262c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      padding: 5rem 1rem 6rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      margin-bottom: 0.8rem;
+    }
+
+    header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    header button {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    header button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0.4rem 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 5rem 1.2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 2.2rem;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-bottom: 0.9rem;
+      color: var(--secondary);
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    footer p {
+      opacity: 0.85;
+      font-size: 0.9rem;
+    }
+
+    input, textarea {
+      border-radius: 12px;
+      border: 1px solid #ddd;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(50,130,184,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <!-- Header -->
+  <header>
+    <h1>Dimex Consultancy Services</h1>
+    <p>Project Management • Monitoring & Evaluation • Accounting Systems</p>
+    <br />
+    <button onclick="scrollToSection('contact')" style="padding:12px 28px; font-size:1rem; border:none; border-radius:25px; background:#fff; color:#0f4c75; font-weight:600; cursor:pointer;">Request Consultancy</button>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a onclick="scrollToSection('about')">About</a></li>
+      <li><a onclick="scrollToSection('services')">Services</a></li>
+      <li><a onclick="scrollToSection('approach')">Our Approach</a></li>
+      <li><a onclick="scrollToSection('why')">Why Us</a></li>
+      <li><a onclick="scrollToSection('contact')">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Counters -->
+  <section id="counters">
+    <div class="grid">
+      <div class="card"><h3><span class="counter" data-target="9">0</span>+</h3><p>Years Experience</p></div>
+      <div class="card"><h3><span class="counter" data-target="50">0</span>+</h3><p>Projects Supported</p></div>
+      <div class="card"><h3><span class="counter" data-target="20">0</span>+</h3><p>Organizations Served</p></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Dimex Consultancy Services is a professional consulting firm providing end-to-end advisory,
+      systems strengthening, and capacity-building services in Project Management, Monitoring & Evaluation,
+      and Accounting & Financial Systems. We support governments, NGOs, development partners,
+      and private sector organizations to deliver results with accountability and efficiency.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Project Management</h3>
+        <ul>
+          <li>Project planning & scheduling (MS Project)</li>
+          <li>Project governance & assurance</li>
+          <li>Risk, issue & change management</li>
+          <li>Portfolio & programme management</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Monitoring & Evaluation</h3>
+        <ul>
+          <li>M&E framework & LogFrame development</li>
+          <li>Baseline, mid-term & end-line evaluations</li>
+          <li>Performance indicators & reporting</li>
+          <li>Donor compliance reporting</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Accounting Systems</h3>
+        <ul>
+          <li>QuickBooks setup & support</li>
+          <li>Multi-project & NGO accounting</li>
+          <li>Sage accounting implementation</li>
+          <li>Financial controls & reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section id="approach">
+    <h2>Our Approach</h2>
+    <div class="grid">
+      <div class="card">Needs Assessment</div>
+      <div class="card">Tailored Solutions</div>
+      <div class="card">Hands-on Implementation</div>
+      <div class="card">Capacity Building</div>
+      <div class="card">Continuous Improvement</div>
+    </div>
+  </section>
+
+  <!-- Customers -->
+  <section id="customers">
+    <h2>Our Customers</h2>
+    <div class="grid">
+      <div class="card">Government Ministries & Agencies</div>
+      <div class="card">International & Local NGOs</div>
+      <div class="card">Development Partners</div>
+      <div class="card">SMEs & Private Sector Organizations</div>
+    </div>
+  </section>
+
+  <!-- Representative Engagements -->
+  <section id="engagements">
+    <h2>Representative Engagements</h2>
+    <ul style="max-width:900px; margin:auto;">
+      <li>Development of Project Management & Assurance Frameworks</li>
+      <li>Monitoring & Evaluation support for donor-funded programmes</li>
+      <li>QuickBooks standardization across multi-project environments</li>
+      <li>Project governance and portfolio performance reviews</li>
+    </ul>
+  </section>
+
+  <!-- Lead Consultant -->
+  <section id="lead">
+    <h2>Lead Consultant / Principal</h2>
+    <div class="card" style="max-width:900px; margin:auto;">
+      <h3>Principal Consultant – Project Management & Assurance</h3>
+      <p>
+        The Lead Consultant brings over <strong>9 years of professional experience</strong> in Project Management,
+        Project Assurance, Portfolio Management, Monitoring & Evaluation, and Financial Systems support.
+        
+        With strong experience working with <strong>government institutions, NGOs, and donor-funded programmes</strong>,
+        the Principal Consultant has supported the establishment of project governance frameworks,
+        assurance models, M&E systems, and standardized accounting solutions.
+      </p>
+      <ul>
+        <li>Project & Portfolio Management (PRINCE2®, PMP® aligned)</li>
+        <li>Project Assurance & Governance Frameworks</li>
+        <li>Monitoring & Evaluation Systems</li>
+        <li>QuickBooks & Sage Accounting for NGOs</li>
+        <li>Capacity Building & Training</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Consultants -->
+  <section id="consultants">
+    <h2>Our Consultants</h2>
+    <div class="grid">
+      <div class="card"><h3>Project Management Experts</h3><p>Certified consultants with hands-on delivery experience across sectors.</p></div>
+      <div class="card"><h3>M&E Specialists</h3><p>Experts in results frameworks, evaluations, and performance reporting.</p></div>
+      <div class="card"><h3>Accounting Systems Consultants</h3><p>Specialists in QuickBooks, Sage, and donor-compliant accounting systems.</p></div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why">
+    <h2>Why Choose Us</h2>
+    <ul style="max-width:800px; margin:auto;">
+      <li>Multidisciplinary expertise</li>
+      <li>Strong donor and compliance understanding</li>
+      <li>Practical, results-driven solutions</li>
+      <li>Focus on sustainability and skills transfer</li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form style="max-width:600px; margin:auto;" onsubmit="sendEmail(event)">
+      <input type="text" placeholder="Your Name" required style="width:100%; padding:10px; margin-bottom:10px;" />
+      <input type="email" placeholder="Your Email" required style="width:100%; padding:10px; margin-bottom:10px;" />
+      <textarea placeholder="How can we help you?" required style="width:100%; padding:10px; margin-bottom:10px;"></textarea>
+      <button type="submit" style="padding:12px 24px; background:#0f4c75; color:#fff; border:none; border-radius:25px;">Submit</button>
+    </form>
+    <p style="text-align:center; margin-top:1rem;">Email: info@dimexconsultancy.com | Kenya</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Dimex Consultancy Services. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+      // Counter animation
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const inc = target / 50;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + inc);
+          setTimeout(update, 40);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+
+    function sendEmail(e) {
+      e.preventDefault();
+      alert('Thank you for contacting Dimex Consultancy Services. We will get back to you shortly.');
+    }
+
+</script>
+
+</body>
+</html>
